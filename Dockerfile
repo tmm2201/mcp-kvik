@@ -30,6 +30,8 @@ COPY --from=builder /app/dist ./dist
 COPY package.json pnpm-lock.yaml ./
 
 # Install only production dependencies
+# Install pnpm in production stage
+RUN npm install -g pnpm
 RUN pnpm install --prod
 
 # Set environment variable for Google credentials
